@@ -30,8 +30,8 @@ public class AppUserController {
     }
 
     @PostMapping("/signup")
-    public String signupUser(@RequestParam String username, @RequestParam String password, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String dateOfBirth, @RequestParam String specialization, @RequestParam String bio) {
-        ApplicationUser appuser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, dateOfBirth, specialization, bio);
+    public String signupUser(@RequestParam String username, @RequestParam String password, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String dateOfBirth, @RequestParam String Specialization, @RequestParam String bio) {
+        ApplicationUser appuser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, dateOfBirth, Specialization, bio);
         appUseraRepository.save(appuser);
         return "login";
     }

@@ -11,11 +11,6 @@ public class ApplicationUser implements UserDetails {
     public ApplicationUser() {
     }
 
-//    public ApplicationUser(String username, String password) {
-//        this.password = password;
-//        this.username = username;
-//    }
-
     public ApplicationUser(String username,String password, String firstName, String lastName, String dateOfBirth, String specialization, String bio) {
         this.username = username;
         this.password = password;
@@ -37,7 +32,9 @@ public class ApplicationUser implements UserDetails {
     private String dateOfBirth;
     private String Specialization;
 
-
+    public String getSpecialization() {
+        return Specialization;
+    }
 
     public int getId() {
         return id;

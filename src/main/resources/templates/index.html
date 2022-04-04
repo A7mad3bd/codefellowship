@@ -11,13 +11,15 @@
 <h1>Hello </h1>
 <h1>Welcome to codefellowship </h1>
 
-<div th:each="userdata : ${userdata}">
-    <h2 th:text = "'Username: ' + ${userdata.username}"></h2>
-    <p th:text = "'First Name: ' + ${userdata.firstName}"></p>
-    <p th:text = "'Last Name: ' + ${userdata.lastName}"></p>
-    <p th:text = "'Date of Birth: ' + ${displayedUser.date}"></p>
-    <p th:text = "'Specialization: ' + ${displayedUser.Specialization}"></p>
-    <p th:text = "'bio: ' + ${displayedUser.bio}"></p>
-</div>
+
+
+<ul th:each="newUser: ${newUser}">
+    <p>Username</p><span th:text="${newUser.username}"></span>
+    <p>First Name</p><span th:text="${newUser.firstName}"></span>
+    <p>Last Name</p><span th:text="${newUser.lastName}"></span>
+    <p>Date of Birth</p><span th:text="${newUser.dateOfBirth}"></span>
+    <p>Specialization</p><span th:text="${newUser.Specialization}"></span>
+    <p>Bio</p><span th:text="${newUser.bio}"></span>
+</ul>
 </body>
 </html>
