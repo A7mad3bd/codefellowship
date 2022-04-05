@@ -17,8 +17,8 @@ public class GeneralController {
 
     @Autowired
     PasswordEncoder encoder;
-    @GetMapping("/")
-    public String MainPage(Principal p, Model m){
+    @GetMapping("/user")
+    public String userPage(Principal p, Model m){
         if (p != null){
             String username = p.getName();
             ApplicationUser newUser = (ApplicationUser) applicationuserRepository.findByUsername(username);
@@ -27,7 +27,7 @@ public class GeneralController {
         return "index";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String HomePage(){
         return "home";
     }
