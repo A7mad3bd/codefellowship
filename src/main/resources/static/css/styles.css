@@ -1,0 +1,59 @@
+
+#logo{
+    float: left;
+    top:10px;
+    left:0;
+}
+section{
+
+    margin: 80px;
+}
+table td#ROW1  {background-color:red; color:white;  }
+table td#ROW2  {background-color:green;  color:white}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 120px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+a,h6 {
+    line-height: 1em;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+header {
+
+}
+
+nav {
+
+    background: #0582c8;
+
+}
+
+
+nav ul {
+    padding: 0px;
+    text-align: center;
+}
+
+footer {
+    background-color: #0582c8;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+body
+{
+    text-align: center;
+}
