@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -31,6 +32,9 @@ public class ApplicationUser implements UserDetails {
     private String lastName;
     private String dateOfBirth;
     private String Specialization;
+
+    @OneToMany(mappedBy = "applicationUser")
+    List<ApplicationPost> allposts;
 
     public String getSpecialization() {
         return Specialization;

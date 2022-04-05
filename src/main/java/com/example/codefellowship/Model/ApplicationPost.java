@@ -1,5 +1,6 @@
 package com.example.codefellowship.Model;
 import javax.persistence.*;
+import java.security.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -7,9 +8,8 @@ public class ApplicationPost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    String title;
     String body;
-    Date createdAt;
+    String createdAt;
 
     @ManyToOne
     ApplicationUser applicationUser;
@@ -18,6 +18,19 @@ public class ApplicationPost {
 
     }
 
+    public ApplicationPost(String body, String createdAt, ApplicationUser applicationUser) {
+        this.body = body;
+        this.createdAt = createdAt;
+        this.applicationUser = applicationUser;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getBody() {
         return body;
@@ -27,11 +40,11 @@ public class ApplicationPost {
         this.body = body;
     }
 
-    public Date getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -39,25 +52,9 @@ public class ApplicationPost {
         return applicationUser;
     }
 
-    public void setApplicationUser(ApplicationUser postByUser) {
-        this.applicationUser = postByUser;
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
     }
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ApplicationPost(String title, String body) {
-        this.title = title;
-        this.body = body;
-    }
-
-
 }
 
 
