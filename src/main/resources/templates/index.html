@@ -2,13 +2,21 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <nav>
-        <div style="text-align: center;">
-            <!--            <button onclick="Promitquestion()">Click here to try JS code</button>-->
-        </div>
+
+        <div style="text-align: center;"/>
+        <a class="nav-link" href="/preform_logout">Logout</a>
+        <a class="nav-link" href="/post">Add Post</a>
+
         <ul>
+
+            <img src="123.png" id="logo" alt="" width="65" height="65">
+
             <a></a>
             <a></a>
+            <a></a>
+
         </ul>
+
     </nav>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,14 +24,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Details</title>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
-<!--    <script th:src="@{/js/myjs.js}"></script>-->
-<body>
+    <!--    <script th:src="@{/js/myjs.js}"></script>-->
+
 </head>
-<a class="nav-link" href="/preform_logout">Logout</a>
-<h1>Hello   <span th:text="${newUser.username}"></span></h1>
+<body>
+<h1>Hello <span th:text="${newUser.username}"></span></h1>
 
 <h1>Welcome to codefellowship </h1>
-
 
 
 <ul th:each="newUser: ${newUser}">
@@ -35,6 +42,15 @@
     <h2>Bio :<span th:text="${newUser.bio}"></span></h2>
 
 </ul>
+
+
+<!--<ul>-->
+<!--    <li th:each="allposts : ${applicationUser.allposts}">-->
+<!--        <p><span th:text="${allposts.body}"></span></p>-->
+<!--        <p><span th:text="${allposts.createdAt}"></span></p>-->
+<!--    </li>-->
+<!--</ul>-->
+
 </body>
 <footer>
 
