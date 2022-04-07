@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav>
+        <div style="text-align: center;">
+            <a class="nav-link" href="/preform_logout">Logout</a>
+            <a class="nav-link" href="/myprofile">myprofile</a>
+            <ul>
+
+                <img src="123.png" id="logo" alt="" width="65" height="65" >
+
+                <a></a>
+                <a></a>
+                <a></a>
+
+            </ul>
+        </div>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Post</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div th:each="post:${posts}">
+    <h2>User :<span th:text="${post.Us.id}"></span></h2>
+    <h2>The Post :<span th:text="${post.body}"></span></h2>
+    <h2>CreatedAt :<span th:text="${post.createdAt}"></span></h2>
+<h2>ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ</h2>
+</div>
+</body>
+<footer>
+
+    <div>
+        <h6> &copy; 2022 All rights reserved </h6>    <h6> Posts </h6>
+
+    </div>
+</footer>
+</html>

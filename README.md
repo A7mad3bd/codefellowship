@@ -7,7 +7,9 @@
 - "/signup" -> signup new  user
 - "/myprofile"-> render the user data page (are accessible to logged in users)
 - "/users/{id}" ->  User data
-- "/post" ->  Post body 
+- "/post" ->  Create Post  
+- "/posts" ->  List of the Post
+
 
 - logout added
 - Passwords hashed by BCrypt
