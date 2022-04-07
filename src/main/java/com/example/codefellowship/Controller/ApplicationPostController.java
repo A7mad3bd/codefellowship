@@ -23,7 +23,6 @@ public class ApplicationPostController {
     @Autowired
     UseraRepository appUserRepository;
 
-
     @PostMapping("/post")
     public RedirectView addpost(Principal p, Model m, String body) {
         ApplicationUser user = (ApplicationUser) appUserRepository.findByUsername(p.getName());
@@ -31,16 +30,20 @@ public class ApplicationPostController {
         ApplicationPost post = new ApplicationPost(body, createdAt, user);
         postRepository.save(post);
         List<ApplicationPost> list = user.getPosts();
-        m.addAttribute("posts", user.getPosts());
-        m.addAttribute("postss", list);
-        m.addAttribute("getBody", post.getBody());
-        m.addAttribute("getCreatedAt", post.getCreatedAt());
-        return new RedirectView("/users/" + user.getId());
+        return new RedirectView("/posts");
     }
 
     @GetMapping("/post")
     public String postpage() {
         return "post";
+    }
+
+    @GetMapping("/posts")
+    public String postspage(Model m) {
+        List a;
+        a = postRepository.findAll();
+        m.addAttribute("posts", a);
+        return "posts";
     }
 
 
