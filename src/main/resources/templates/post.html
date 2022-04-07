@@ -22,18 +22,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add Post</title>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
-    <!--    <script th:src="@{/js/myjs.js}"></script>-->
 
 </head>
 
 <body>
-    <form action="/POST" method="posts">
-        <label for="body">Username</label>
+    <form action="/post" method="POST">
+        <label for="body">body</label>
         <input type="text" name="body" id="body">
-        <label for="createdAt">Password</label>
-        <input type="text" name="createdAt" id="createdAt">
         <input type="submit">
     </form>
+
 </body>
 <footer>
 

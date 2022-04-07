@@ -18,7 +18,7 @@ public class ApplicationUser implements UserDetails {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        Specialization = specialization;
+        this.specialization = specialization;
         this.bio = bio;
     }
 
@@ -31,13 +31,25 @@ public class ApplicationUser implements UserDetails {
     private String firstName;
     private String lastName;
     private String dateOfBirth;
-    private String Specialization;
+    private String specialization;
 
-    @OneToMany(mappedBy = "applicationUser")
-    List<ApplicationPost> allposts;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
+    }
+
+    public void setPosts(List<ApplicationPost> posts) {
+        this.posts = posts;
+    }
+
+    public List<ApplicationPost> getPosts() {
+        return posts;
+    }
+
+    @OneToMany(mappedBy = "Us",cascade = CascadeType.ALL)
+    private List<ApplicationPost> posts;
 
     public String getSpecialization() {
-        return Specialization;
+        return specialization;
     }
 
     public int getId() {

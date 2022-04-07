@@ -1,20 +1,13 @@
 package com.example.codefellowship.Controller;
 
-import com.example.codefellowship.Model.ApplicationPost;
 import com.example.codefellowship.Model.ApplicationUser;
-import com.example.codefellowship.Repository.PostRepository;
 import com.example.codefellowship.Repository.UseraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.security.Principal;
 
@@ -22,7 +15,6 @@ import java.security.Principal;
 public class GeneralController {
     @Autowired
     UseraRepository applicationuserRepository;
-
 
     @Autowired
     PasswordEncoder encoder;
@@ -43,14 +35,13 @@ public class GeneralController {
         }
         return "index";
     }
-//
-//    @GetMapping("/users/{id}")
-//    public String userprofileid(@PathVariable String id,Principal p,Model m) {
-//        long ID = Long.parseLong(id);
-//        ApplicationUser user = applicationuserRepository.findById(ID);
-//        m.addAttribute("user", user);
-//        return "userprofile";
-//    }
+
+    @GetMapping("/users/{id}")
+    public String getuserdata(@PathVariable int id, Model model) {
+        ApplicationUser user = applicationuserRepository.findApplicationUserByid(id);
+        model.addAttribute("user", user);
+        return "userprofile";
+    }
 
 
 }
