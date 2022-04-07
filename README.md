@@ -10,7 +10,11 @@
 - "/post" ->  Create Post  
 - "/posts" ->  List of the Post
 
+
 - logout added
+- Passwords hashed by BCrypt
+- To run the app from comand-line
+./gradlew bootRun
 - Passwords hashed by BCrypt
 - To run the app from comand-line
 ./gradlew bootRun
