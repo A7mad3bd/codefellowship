@@ -7,7 +7,7 @@
             <a class="nav-link" href="/myprofile">myprofile</a>
             <ul>
 
-                <img src="123.png" id="logo" alt="" width="65" height="65" >
+                <img src="123.png" id="logo" alt="" width="65" height="65">
 
                 <a></a>
                 <a></a>
@@ -22,15 +22,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add Post</title>
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
-
 </head>
 <body>
+
 <div th:each="post:${posts}">
-    <h2>User :<span th:text="${post.Us.id}"></span></h2>
+
+    <a th:href="'/follow/'+${post.Us.id}+'/'+${user1.id}">Follow<span th:text="${post.Us.username}"></span></a>
+    <a th:href="'/users/'+${post.Us.id}">Profile</a>
+    <a type="button" href="/users/post.Us.id"></a>
+    <h2>User :<span th:text="${post.Us.username}"></span></h2>
     <h2>The Post :<span th:text="${post.body}"></span></h2>
     <h2>CreatedAt :<span th:text="${post.createdAt}"></span></h2>
-<h2>ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ</h2>
+    <h2>ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ</h2>
 </div>
+
 </body>
 <footer>
 
