@@ -5,27 +5,27 @@ import java.time.LocalDateTime;
 
 
 @Entity
-public class ApplicationPost {
+public class AppPost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    String body;
+    public String body;
     LocalDateTime createdAt;
 
     @ManyToOne
-    ApplicationUser Us;
+    AppUser Us;
 
-    public ApplicationPost() {
+    public AppPost() {
 
     }
 
-    public ApplicationPost(String body, LocalDateTime createdAt, ApplicationUser Us) {
+    public AppPost(String body, LocalDateTime createdAt, AppUser Us) {
         this.body = body;
         this.createdAt = createdAt;
         this.Us = Us;
     }
 
-    public ApplicationPost(String body, LocalDateTime createdAt) {
+    public AppPost(String body, LocalDateTime createdAt) {
         this.body = body;
         this.createdAt = createdAt;
     }
@@ -47,11 +47,11 @@ public class ApplicationPost {
     }
 
 
-    public ApplicationUser getUs() {
+    public AppUser getUs() {
         return Us;
     }
 
-    public void setUs(ApplicationUser us) {
+    public void setUs(AppUser us) {
         Us = us;
     }
 

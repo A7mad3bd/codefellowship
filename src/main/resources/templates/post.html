@@ -28,11 +28,16 @@
 <body>
     <form action="/post" method="POST">
         <label for="body">Write your Post here</label>
-        <input type="text" name="body" id="body" size="50" width="50" height="50">
+        <textarea type="text" name="body" id="body" size="100" width="100" height="100"></textarea>
         <input type="submit">
     </form>
 
-
+<!--    <div th:each="post:${posts}">-->
+<!--        <h2>User :<span th:text="${post.Us.id}"></span></h2>-->
+<!--        <h2>The Post :<span th:text="${post.body}"></span></h2>-->
+<!--        <h2>CreatedAt :<span th:text="${post.createdAt}"></span></h2>-->
+<!--        <h2>ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ</h2>-->
+<!--    </div>-->
 
 </body>
 <footer>

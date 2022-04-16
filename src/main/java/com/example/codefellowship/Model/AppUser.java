@@ -8,11 +8,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class ApplicationUser implements UserDetails {
-    public ApplicationUser() {
+public class AppUser implements UserDetails {
+    public AppUser() {
     }
 
-    public ApplicationUser(String username,String password, String firstName, String lastName, String dateOfBirth, String specialization, String bio) {
+    public AppUser(String username, String password, String firstName, String lastName, String dateOfBirth, String specialization, String bio) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -24,7 +24,7 @@ public class ApplicationUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String password;
     @Column(unique = true)
     private String username;
@@ -33,30 +33,61 @@ public class ApplicationUser implements UserDetails {
     private String dateOfBirth;
     private String specialization;
 
+    public AppUser(String username, String encode) {
+
+    }
+
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
     }
 
-    public void setPosts(List<ApplicationPost> posts) {
+    public void setPosts(List<AppPost> posts) {
         this.posts = posts;
     }
 
-    public List<ApplicationPost> getPosts() {
+    public List<AppPost> getPosts() {
         return posts;
     }
 
-    @OneToMany(mappedBy = "Us",cascade = CascadeType.ALL)
-    private List<ApplicationPost> posts;
+    @OneToMany(mappedBy = "Us", cascade = CascadeType.ALL)
+    private List<AppPost> posts;
+
+
+    public List<AppUser> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<AppUser> following) {
+        this.following = following;
+    }
+
+    public List<AppUser> getFollower() {
+        return follower;
+    }
+
+    public void setFollower(List<AppUser> follower) {
+        this.follower = follower;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "follow", joinColumns = {@JoinColumn(name = "ing")},
+            inverseJoinColumns = {@JoinColumn(name = "er")})
+    private List<AppUser> following;
+
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "following", fetch = FetchType.EAGER)
+    private List<AppUser> follower;
+
 
     public String getSpecialization() {
         return specialization;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
